@@ -20,8 +20,14 @@ export default function MainStacks (){
             <MainStack.Screen name="SingIn" component={SingInScreen} options={{
                 headerShown:false
             }}/>
-            <MainStack.Screen name="SingUp" component={SingUpScreen}/>
-            <MainStack.Screen name="Home" component={HomeScreen}/>
+            <MainStack.Screen name="SingUp" component={SingUpScreen} options={{
+                headerShown:false,
+            }}/>
+            <MainStack.Screen name="Home" component={HomeScreen} 
+                options={{
+                    headerShown:false
+                }}            
+            />
         </MainStack.Navigator>
     );
 }

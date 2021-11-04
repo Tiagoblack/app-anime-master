@@ -25,16 +25,26 @@ export const CustomButton = styled.TouchableOpacity`
 `;
 export const  Buttons = styled.Text`
     margin-left: 5px;
+    
 
 `;
-export const  Inputs = styled.TextInput`
-    height: 40px;
+export const InputContainer = styled.View`
+    flex-direction: row;
+    height: 45px;
     width: 100%;
     background-color: #777;
     margin-bottom: 10px;
     border-radius: 30px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+
+`;
+export const  Inputs = styled.TextInput`
+   height: 100%;
+   width:100%;
+   padding: 0;
+   margin: 0;
 
 `;
 export const  SingInButton = styled.TouchableOpacity`

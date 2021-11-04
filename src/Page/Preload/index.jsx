@@ -12,7 +12,7 @@ export default  function PreLoad (){
     const naviagator = useNavigation();
     setTimeout(()=>{
         naviagator.navigate('SingIn')
-    },100)
+    },2000)
     return(
         <Container>
             <StatusBar style="light" backgroundColor="#333"/>

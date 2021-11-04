@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import LottieView from 'lottie-react-native';
 import {StatusBar} from 'expo-status-bar'
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation, CommonActions} from '@react-navigation/native';
+import { Ionicons, Entypo,MaterialIcons} from '@expo/vector-icons';
 
 import {Container
     ,CustomButton
@@ -9,6 +10,7 @@ import {Container
     , Inputs
     , SingInButton
     , SingInText
+    ,InputContainer
     
     ,} from './style'
 
@@ -17,12 +19,20 @@ import {Container
 export default  function SingIn (){
 
     const navigator = useNavigation();
-    const handleNavigateSingUp = () =>{
-        navigator.navigate('SingUp')
+    
+    const [securyText, setSecuryText] = useState(false)
+ 
+    const handleNavigateSingIn = () =>{
+        navigator.navigate('SingUo')
+           
+           
+           
     }
 
     const handleNavigateHome = () =>{
-        navigator.navigate('Home')
+        navigator.reset({
+            routes:[{name: 'Home'}]
+        })
     }
 
     return(
@@ -34,19 +44,26 @@ export default  function SingIn (){
                         autoPlay
                         autoSize
                         style={{height:120, width:400, marginBottom:20}}
-                        resizeMode="contain"                    
+                        resizeMode="contain"  
+                        duration={2000}
+                        loop={false}                  
                     />
-
+            <InputContainer>
                 <Inputs placeholder="Digite seu Email"/>
-                <Inputs  placeholder="Digite sua senha" securyEntre/>
+                 <Ionicons name="person-circle-outline" size={28} color="#fff" />
+            </InputContainer>
+            <InputContainer>
+                <Inputs  placeholder="Digite sua senha" secureTextEntry={securyText?false:true}/>
+                <Entypo onPress={()=>setSecuryText(!securyText)} name={securyText?"eye":"eye-with-line"} size={26} color="#fff" />
+            </InputContainer>
             <SingInButton onPress={handleNavigateHome}>
                 <SingInText>Logar</SingInText>
             </SingInButton>
 
-            <CustomButton onPress={handleNavigateSingUp}>
-                <Buttons>Não possui uma conta?</Buttons>
+            <CustomButton onPress={handleNavigateSingIn}>
+                <Buttons style={{fontSize:14}}>Já possui uma conta?</Buttons>
                 <Buttons 
-                style={{color:'#32c2e3'}}
+                style={{color:'#32c2e3', fontWeight:'bold'}}
                 >Então faça login</Buttons>
             </CustomButton>
         </Container>
