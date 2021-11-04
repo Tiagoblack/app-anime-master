@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native'
 
-export default  function PreLoad (){
+export default  function Home (){
     return(
         <View>
             <Text>tela PreLoad</Text>

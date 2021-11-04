@@ -1,15 +1,27 @@
 import React from 'react'
-import {createStackNaviagation} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const MainStack = createStackNaviagation();
 
-export default ()=>{
+import PreLoadScreen from '../Page/Preload';
+import SingInScreen from '../Page/SingIn';
+import SingUpScreen from '../Page/SingUp';
+import HomeScreen from '../Page/Home';
+
+
+const MainStack = createStackNavigator();
+
+
+export default function MainStacks (){
     return(
         <MainStack.Navigator>
-            <MainStack.Screen name="Profile" component={ProfileScreen}/>
-            <MainStack.Screen name="SingIn" component={SingIn}/>
-            <MainStack.Screen name="SingUp" component={SingUoScreen}/>
-            <MainStack.Screen name="Home" component={HomeScreem}/>
+            <MainStack.Screen name="PreLoad" component={PreLoadScreen} options={{
+                headerShown:false
+            }}/>
+            <MainStack.Screen name="SingIn" component={SingInScreen} options={{
+                headerShown:false
+            }}/>
+            <MainStack.Screen name="SingUp" component={SingUpScreen}/>
+            <MainStack.Screen name="Home" component={HomeScreen}/>
         </MainStack.Navigator>
     );
 }
